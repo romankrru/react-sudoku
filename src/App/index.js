@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useEventListener } from "./generic/hooks";
+import { useEventListener } from "../generic/hooks";
 import Board from "./Board";
 import Header from "./Header";
 import Keyboard from "./Keyboard";

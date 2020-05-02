@@ -20,7 +20,7 @@ const Keyboard = (props) => {
 				<Button onClick={() => props.onClick(9)}>9</Button>
 				<Button onClick={() => props.onClick("Delete")}>✕</Button>
 				<Button size="big" onClick={() => props.onClick("Mode")}>
-					Normal
+					{props.mode === "normal" ? "Normal" : "Candidate"}
 				</Button>
 			</div>
 		</div>

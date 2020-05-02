@@ -28,6 +28,7 @@ const transformGrid = (grid) => {
 const initialState = {
 	grid: transformGrid(_grid),
 	focus: [],
+	mode: "normal",
 };
 
 const actionTypes = {
@@ -35,6 +36,7 @@ const actionTypes = {
 	CLEAR_CELL: "CLEAR_CELL",
 	SET_GRID: "SET_GRID",
 	TOGGLE_CANDIDATE: "TOGGLE_CANDIDATE",
+	TOGGLE_MODE: "TOGGLE_MODE",
 	SET_FOCUS: "SET_FOCUS",
 };
 
@@ -87,6 +89,8 @@ const reducer = (state, action) => {
 				...state,
 
 				grid: updateCell(state.grid, action.rowIdx, action.colIdx, {
+					value: null,
+
 					candidates: currentCandidates.includes(action.candidate)
 						? currentCandidates.filter((c) => c !== action.candidate)
 						: [...currentCandidates, action.candidate],
@@ -96,6 +100,12 @@ const reducer = (state, action) => {
 
 		case actionTypes.SET_FOCUS:
 			return { ...state, focus: action.focus };
+
+		case actionTypes.TOGGLE_MODE:
+			return {
+				...state,
+				mode: state.mode === "normal" ? "candidate" : "normal",
+			};
 
 		default:
 			return state;

@@ -6,6 +6,15 @@ import Header from "./Header";
 import Keyboard from "./Keyboard";
 import reducer, { actionTypes, initialState } from "./reducer";
 
+// ['Numpad1', 'Digit1', 'Numpad2', ...]
+const digitKeys = Array.from({ length: 9 }, (_, i) => i + 1).reduce(
+	(acc, i) => {
+		acc.push(`Numpad${i}`, `Digit${i}`);
+		return acc;
+	},
+	[]
+);
+
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -31,16 +40,20 @@ const App = () => {
 			candidate: candidate,
 		});
 
+	const toggleMode = () => dispatch({ type: actionTypes.TOGGLE_MODE });
+
 	const handleKeyPress = (e) => {
+		if (e.key === "Shift") toggleMode();
+
 		const [focusRowIdx, focusColIdx] = state.focus;
 
-		if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+		if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.code)) {
 			if (!state.focus.length) {
 				setFocus([0, 0]);
 				return;
 			}
 
-			switch (e.key) {
+			switch (e.code) {
 				case "ArrowDown":
 					if (focusRowIdx < 8) setFocus([focusRowIdx + 1, focusColIdx]);
 					break;
@@ -62,21 +75,46 @@ const App = () => {
 			}
 		}
 
-		if (!state.focus.length) return;
+		if (!state.focus.length || !state.grid[focusRowIdx][focusColIdx].changeable)
+			return;
 
-		if (!state.grid[focusRowIdx][focusColIdx].changeable) return;
+		if (digitKeys.includes(e.code)) {
+			// FIXME:
+			if (state.mode === "normal")
+				updateCell(focusRowIdx, focusColIdx, Number(e.code.slice(-1)));
 
-		if (["1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key))
-			updateCell(focusRowIdx, focusColIdx, Number(e.key));
+			if (state.mode === "candidate")
+				toggleCandidate(focusRowIdx, focusColIdx, Number(e.code.slice(-1)));
+		}
 
-		if (["Backspace", "Delete"].includes(e.key))
+		if (["Backspace", "Delete"].includes(e.code))
 			clearCell(focusRowIdx, focusColIdx);
 	};
 
+	const handleKeyUp = (e) => {
+		if (e.key === "Shift") toggleMode();
+	};
+
 	useEventListener("keydown", handleKeyPress);
+	useEventListener("keyup", handleKeyUp);
 
 	const handleAppKeyboard = (value) => {
-		console.log(value);
+		if (value === "Mode") toggleMode();
+
+		const [focusRowIdx, focusColIdx] = state.focus;
+
+		if (!state.focus.length || !state.grid[focusRowIdx][focusColIdx].changeable)
+			return;
+
+		if ([1, 2, 3, 4, 5, 6, 7, 8, 9].includes(value)) {
+			// FIXME:
+			if (state.mode === "normal") updateCell(focusRowIdx, focusColIdx, value);
+
+			if (state.mode === "candidate")
+				toggleCandidate(focusRowIdx, focusColIdx, value);
+		}
+
+		if (value === "Delete") clearCell(focusRowIdx, focusColIdx);
 	};
 
 	return (
@@ -88,7 +126,7 @@ const App = () => {
 				focus={state.focus}
 				setFocus={setFocus}
 			/>
-			<Keyboard onClick={handleAppKeyboard} />
+			<Keyboard mode={state.mode} onClick={handleAppKeyboard} />
 		</div>
 	);
 };

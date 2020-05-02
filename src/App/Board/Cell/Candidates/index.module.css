@@ -8,6 +8,10 @@
 
     font-size: 11px;
     line-height: 20px;
+    color: transparent;
+}
+
+.candidates:hover {
     color:#C4C4C4;
 }
 

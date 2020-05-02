@@ -9,6 +9,7 @@ const Button = (props) => {
 			className={cn(styles.button, {
 				[styles.buttonBig]: props.size === "big",
 			})}
+			onClick={props.onClick}
 			disabled={props.disabled}
 		>
 			{props.children}

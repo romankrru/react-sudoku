@@ -126,6 +126,10 @@ const App = () => {
 		]);
 	};
 
+	const handleAppKeyboard = (value) => {
+		console.log(value);
+	};
+
 	return (
 		<div>
 			<Header />
@@ -135,7 +139,7 @@ const App = () => {
 				focus={focus}
 				setFocus={setFocus}
 			/>
-			<Keyboard />
+			<Keyboard onClick={handleAppKeyboard} />
 		</div>
 	);
 };

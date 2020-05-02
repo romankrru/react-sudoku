@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useMemo } from "react";
+import _ from "lodash";
 
 import { useEventListener } from "../generic/hooks";
 import Board from "./Board";
@@ -6,17 +7,36 @@ import Header from "./Header";
 import Keyboard from "./Keyboard";
 import reducer, { actionTypes, initialState } from "./reducer";
 
-// ['Numpad1', 'Digit1', 'Numpad2', ...]
-const digitKeys = Array.from({ length: 9 }, (_, i) => i + 1).reduce(
-	(acc, i) => {
-		acc.push(`Numpad${i}`, `Digit${i}`);
-		return acc;
-	},
-	[]
-);
+// ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ...]
+const digitKeys = _.range(1, 10).reduce((acc, i) => {
+	acc.push(`Numpad${i}`, `Digit${i}`);
+	return acc;
+}, []);
+
+const getCompletedKeys = (grid) => {
+	const map = {};
+
+	grid.forEach((row) => {
+		row.forEach((col) => {
+			if (!col.value) return;
+
+			if (!map[col.value]) map[col.value] = 0;
+
+			map[col.value] += 1;
+		});
+	});
+
+	return Object.keys(map)
+		.map(Number)
+		.filter((key) => map[key] >= 9);
+};
 
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+
+	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
+		state.grid,
+	]);
 
 	const setFocus = (focus) =>
 		dispatch({ type: actionTypes.SET_FOCUS, focus: focus });
@@ -126,7 +146,11 @@ const App = () => {
 				focus={state.focus}
 				setFocus={setFocus}
 			/>
-			<Keyboard mode={state.mode} onClick={handleAppKeyboard} />
+			<Keyboard
+				completedKeys={completedKeys}
+				mode={state.mode}
+				onClick={handleAppKeyboard}
+			/>
 		</div>
 	);
 };

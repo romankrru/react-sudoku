@@ -1,13 +1,13 @@
 import React from "react";
+import _ from "lodash";
 import cn from "classnames";
-import styles from "./index.module.css";
 
-const range = Array.from({ length: 9 }, (_, i) => i + 1);
+import styles from "./index.module.css";
 
 const Candidates = (props) => {
 	return (
 		<div className={styles.candidates}>
-			{range.map((n) => {
+			{_.range(1, 10).map((n) => {
 				return (
 					<div
 						{...(props.isFocus && {

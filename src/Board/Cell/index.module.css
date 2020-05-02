@@ -1,0 +1,72 @@
+.cell {
+    width: 50px;
+    height: 50px;
+
+    font-size: 36px;
+    line-height: 50px;
+    text-align: center;
+
+    background: white;
+    border-right: 1px solid #EDF1F8;
+    border-bottom: 1px solid #EDF1F8;
+
+    cursor: pointer;
+}
+
+.changeableCell {
+    color: #2979FA;
+}
+
+.cellHighlihted {
+    background-color: #F3F8FF;
+}
+
+.cellFocus {
+    position: relative;
+    background-color: white;
+}
+
+.cellFocus::after {
+    content: "";
+    pointer-events: none;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 50px;
+    height: 50px;
+    
+    border: 2px solid #2979FA;
+    border-radius: 6px;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 1px solid #E7EFFF;
+}
+
+.cell:nth-child(n+28):nth-child(-n+36),
+.cell:nth-child(n+55):nth-child(-n+64) {
+    border-top: 1px solid #E7EFFF;
+}
+
+.cell:nth-child(3n) {
+    border-right: 1px solid #E7EFFF;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: 1px solid #E7EFFF;
+}
+
+.cell:nth-child(9n) {
+    border-right: none;
+}
+
+.cell:nth-child(9n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(n + 73) {
+    border-bottom: none;
+}

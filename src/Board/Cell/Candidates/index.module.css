@@ -1,0 +1,38 @@
+.candidates {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    width: 48px;
+    height: 48px;
+
+    font-size: 11px;
+    line-height: 20px;
+    color:#C4C4C4;
+}
+
+.candidateCell {
+    width: 16px;
+    height: 16px;
+    transition: all .3s ease;
+}
+
+.candidateCell:hover {
+    color: #7EAEFC;
+}
+
+.candidateCellActive {
+    color: #2979FA;
+}
+
+.candidateCellActive:hover {
+    color: #2979FA;
+}
+
+.candidateCellHidden {
+    color: transparent;
+}
+
+.candidateCellHidden:hover {
+    color: transparent;
+}

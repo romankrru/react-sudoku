@@ -13,7 +13,11 @@ const Header = (props) => {
 			<div className={styles.headerContainer}>
 				<div className={styles.headerTop}>
 					<img src={logo} alt="Sudoku" width="149" height="80" />
-					<Timer seconds={props.seconds} />
+					<Timer
+						seconds={props.seconds}
+						toggle={props.toggleTimer}
+						isRunning={props.isTimerRunning}
+					/>
 				</div>
 				<div className={styles.headerControls}>
 					<Button className={styles.headerControlsButton}>New</Button>

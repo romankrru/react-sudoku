@@ -20,7 +20,7 @@ const useTimer = (initialValue = 0) => {
 		return () => clearInterval(intervalId);
 	}, [isRunning]);
 
-	return [seconds, toggle];
+	return { seconds, toggle, isRunning };
 };
 
 export default useTimer;

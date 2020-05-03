@@ -8,7 +8,7 @@ import Header from "./Header";
 import Keyboard from "./Keyboard";
 import reducer, { actionTypes, initialState } from "./reducer";
 
-// ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ...]
+// ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ..., 'Digit9']
 const digitKeys = _.range(1, 10).reduce((acc, i) => {
 	acc.push(`Numpad${i}`, `Digit${i}`);
 	return acc;
@@ -34,7 +34,7 @@ const getCompletedKeys = (grid) => {
 
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const [seconds, toggle] = useTimer(1000);
+	const timer = useTimer(1000);
 
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,
@@ -140,13 +140,21 @@ const App = () => {
 
 	return (
 		<div>
-			<Header seconds={seconds} />
+			<Header
+				seconds={timer.seconds}
+				toggleTimer={timer.toggle}
+				isTimerRunning={timer.isRunning}
+			/>
+
 			<Board
+				isTimerRunning={timer.isRunning}
+				toggleTimer={timer.toggle}
 				toggleCandidate={toggleCandidate}
 				grid={state.grid}
 				focus={state.focus}
 				setFocus={setFocus}
 			/>
+
 			<Keyboard
 				completedKeys={completedKeys}
 				mode={state.mode}

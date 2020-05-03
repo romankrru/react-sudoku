@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import cn from "classnames";
 
 import styles from "./index.module.css";
 
@@ -37,7 +38,13 @@ const Timer = (props) => {
 				</Fragment>
 			</div>
 
-			<div className={styles.timerControl}></div>
+			<div
+				onClick={props.toggle}
+				className={cn(styles.timerControl, {
+					[styles.timerControlPause]: props.isRunning,
+					[styles.timerControlPlay]: !props.isRunning,
+				})}
+			></div>
 		</div>
 	);
 };

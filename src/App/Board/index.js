@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 import { validate } from "../../generic/sudoku/";
 import Cell from "./Cell";
+import Overlay from "./Overlay";
 import styles from "./index.module.css";
 
 const Board = (props) => {
@@ -26,6 +27,8 @@ const Board = (props) => {
 					/>
 				))
 			)}
+
+			{!props.isTimerRunning && <Overlay resume={props.toggleTimer} />}
 		</div>
 	);
 };

@@ -21,6 +21,28 @@
     background-color: #F3F8FF;
 }
 
+.changeableCellInvalid {
+    color: #FA2981;
+}
+
+.nativeCellInvalid {
+    position: relative;
+}
+
+.nativeCellInvalid::before {
+    content: "";
+
+    position: absolute;
+    top: 41px;
+    left: 22px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+    background-color: #FA2981;
+}
+
 .cellFocus {
     position: relative;
     background-color: white;

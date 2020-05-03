@@ -12,6 +12,8 @@ const Cell = (props) => {
 				[styles.cellFocus]: props.isFocus,
 				[styles.cellHighlihted]: props.isHiglighted,
 				[styles.changeableCell]: props.changeable,
+				[styles.changeableCellInvalid]: !props.isValid && props.changeable,
+				[styles.nativeCellInvalid]: !props.isValid && !props.changeable,
 			})}
 		>
 			{props.cell.value}

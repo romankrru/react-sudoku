@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
+
+import { validate } from "../../generic/sudoku/";
 import Cell from "./Cell";
 import styles from "./index.module.css";
 
 const Board = (props) => {
+	const invalidCells = useMemo(() => validate(props.grid), [props.grid]);
+	console.log(invalidCells);
+
 	return (
 		<div className={styles.board}>
 			{props.grid.map((row, i) => {
@@ -11,6 +16,7 @@ const Board = (props) => {
 						<Cell
 							rowIdx={i}
 							colIdx={j}
+							isValid={!invalidCells.includes(`${i};${j}`)}
 							toggleCandidate={props.toggleCandidate}
 							changeable={cell.changeable}
 							isHiglighted={props.focus[0] === i || props.focus[1] === j}

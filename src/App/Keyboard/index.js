@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "lodash";
 
+import { modes } from "../../constants";
 import Button from "./Button";
 import styles from "./index.module.css";
 
@@ -30,7 +31,7 @@ const Keyboard = (props) => {
 				))}
 				<Button onClick={() => props.onClick("Delete")}>✕</Button>
 				<Button size="big" onClick={() => props.onClick("Mode")}>
-					{props.mode === "normal" ? "Normal" : "Candidate"}
+					{props.mode === modes.NORMAL ? "Normal" : "Candidate"}
 				</Button>
 			</div>
 		</div>

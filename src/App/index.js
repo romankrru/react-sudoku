@@ -2,6 +2,7 @@ import React, { useReducer, useMemo } from "react";
 import _ from "lodash";
 
 import { useEventListener } from "../generic/hooks";
+import { modes } from "../constants";
 import Board from "./Board";
 import Header from "./Header";
 import Keyboard from "./Keyboard";
@@ -46,7 +47,7 @@ const App = () => {
 			type: actionTypes.UPDATE_CELL,
 			rowIdx: rowIdx,
 			colIdx: colIdx,
-			data: { value: newValue },
+			data: { value: newValue, candidates: [] },
 		});
 
 	const clearCell = (rowIdx, colIdx) =>
@@ -99,11 +100,10 @@ const App = () => {
 			return;
 
 		if (digitKeys.includes(e.code)) {
-			// FIXME:
-			if (state.mode === "normal")
+			if (state.mode === modes.NORMAL)
 				updateCell(focusRowIdx, focusColIdx, Number(e.code.slice(-1)));
 
-			if (state.mode === "candidate")
+			if (state.mode === modes.CANDIDATE)
 				toggleCandidate(focusRowIdx, focusColIdx, Number(e.code.slice(-1)));
 		}
 
@@ -127,10 +127,10 @@ const App = () => {
 			return;
 
 		if ([1, 2, 3, 4, 5, 6, 7, 8, 9].includes(value)) {
-			// FIXME:
-			if (state.mode === "normal") updateCell(focusRowIdx, focusColIdx, value);
+			if (state.mode === modes.NORMAL)
+				updateCell(focusRowIdx, focusColIdx, value);
 
-			if (state.mode === "candidate")
+			if (state.mode === modes.CANDIDATE)
 				toggleCandidate(focusRowIdx, focusColIdx, value);
 		}
 

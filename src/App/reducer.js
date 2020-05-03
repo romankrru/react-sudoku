@@ -1,4 +1,5 @@
-// FIXME:
+import { EMPTY_CELL, modes } from "../constants";
+
 const _grid = [
 	[3, 0, 6, 5, 0, 8, 4, 0, 0],
 	[5, 2, 0, 0, 0, 0, 0, 0, 0],
@@ -10,8 +11,6 @@ const _grid = [
 	[0, 0, 0, 0, 0, 0, 0, 7, 4],
 	[0, 0, 5, 2, 0, 6, 3, 0, 0],
 ];
-
-const EMPTY_CELL = 0;
 
 const transformGrid = (grid) => {
 	return _grid.map((row) =>
@@ -28,7 +27,7 @@ const transformGrid = (grid) => {
 const initialState = {
 	grid: transformGrid(_grid),
 	focus: [],
-	mode: "normal",
+	mode: modes.NORMAL,
 };
 
 const actionTypes = {
@@ -104,7 +103,7 @@ const reducer = (state, action) => {
 		case actionTypes.TOGGLE_MODE:
 			return {
 				...state,
-				mode: state.mode === "normal" ? "candidate" : "normal",
+				mode: state.mode === modes.NORMAL ? modes.CANDIDATE : modes.NORMAL,
 			};
 
 		default:

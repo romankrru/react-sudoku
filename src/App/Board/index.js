@@ -20,8 +20,8 @@ const Board = (props) => {
 						isHighlighted={props.focus[0] === i || props.focus[1] === j}
 						setFocus={props.setFocus}
 						isFocus={props.focus[0] === i && props.focus[1] === j}
-						// FIXME:
-						cell={cell}
+						value={cell.value}
+						candidates={cell.candidates}
 						key={String(i) + String(j)}
 					/>
 				))

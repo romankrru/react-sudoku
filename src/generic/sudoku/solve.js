@@ -1,5 +1,4 @@
-// FIXME: move to settings
-const EMPTY_CELL = 0;
+import { EMPTY_CELL } from "../../constants";
 
 const isValidCandidate = (grid, rowIdx, colIdx, candidate) => {
 	for (let i = 0; i < 9; i++) {

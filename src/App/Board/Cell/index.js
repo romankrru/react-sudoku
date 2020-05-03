@@ -16,13 +16,13 @@ const Cell = (props) => {
 				[styles.nativeCellInvalid]: !props.isValid && !props.changeable,
 			})}
 		>
-			{props.cell.value}
-			{props.cell.candidates && !props.cell.value && (
+			{props.value}
+			{props.candidates && !props.value && (
 				<Candidates
 					rowIdx={props.rowIdx}
 					colIdx={props.colIdx}
 					toggleCandidate={props.toggleCandidate}
-					candidates={props.cell.candidates}
+					candidates={props.candidates}
 					isFocus={props.isFocus}
 				/>
 			)}

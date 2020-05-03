@@ -10,7 +10,7 @@ const Cell = (props) => {
 			onClick={() => props.setFocus([props.rowIdx, props.colIdx])}
 			className={cn(styles.cell, {
 				[styles.cellFocus]: props.isFocus,
-				[styles.cellHighlihted]: props.isHiglighted,
+				[styles.cellHighlighted]: props.isHighlighted,
 				[styles.changeableCell]: props.changeable,
 				[styles.changeableCellInvalid]: !props.isValid && props.changeable,
 				[styles.nativeCellInvalid]: !props.isValid && !props.changeable,

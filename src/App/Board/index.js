@@ -17,7 +17,7 @@ const Board = (props) => {
 						isValid={!invalidCells.includes(`${i};${j}`)}
 						toggleCandidate={props.toggleCandidate}
 						changeable={cell.changeable}
-						isHiglighted={props.focus[0] === i || props.focus[1] === j}
+						isHighlighted={props.focus[0] === i || props.focus[1] === j}
 						setFocus={props.setFocus}
 						isFocus={props.focus[0] === i && props.focus[1] === j}
 						// FIXME:

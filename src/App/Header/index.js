@@ -20,7 +20,9 @@ const Header = (props) => (
 			</div>
 			<div className={styles.headerControls}>
 				<Button className={styles.headerControlsButton}>New</Button>
-				<Button className={styles.headerControlsButton}>Reset</Button>
+				<Button onClick={props.reset} className={styles.headerControlsButton}>
+					Reset
+				</Button>
 				<Button className={styles.headerControlsButton}>Solve</Button>
 			</div>
 			<form className={styles.difficultyControls}>

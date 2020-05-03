@@ -34,7 +34,7 @@ const getCompletedKeys = (grid) => {
 
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const timer = useTimer(1000);
+	const timer = useTimer();
 
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,
@@ -42,6 +42,8 @@ const App = () => {
 
 	const setFocus = (focus) =>
 		dispatch({ type: actionTypes.SET_FOCUS, focus: focus });
+
+	const resetGrid = () => dispatch({ type: actionTypes.RESET_GRID });
 
 	const updateCell = (rowIdx, colIdx, newValue) =>
 		dispatch({
@@ -145,6 +147,7 @@ const App = () => {
 	return (
 		<div>
 			<Header
+				reset={resetGrid}
 				seconds={timer.seconds}
 				toggleTimer={timer.toggle}
 				isTimerRunning={timer.isRunning}

@@ -37,6 +37,7 @@ const actionTypes = {
 	TOGGLE_CANDIDATE: "TOGGLE_CANDIDATE",
 	TOGGLE_MODE: "TOGGLE_MODE",
 	SET_FOCUS: "SET_FOCUS",
+	RESET_GRID: "RESET_GRID",
 };
 
 const updateCell = (grid, rowIdx, colIdx, data) => {
@@ -96,6 +97,13 @@ const reducer = (state, action) => {
 				}),
 			};
 		}
+
+		case actionTypes.RESET_GRID:
+			return {
+				...state,
+				focus: [],
+				grid: transformGrid(_grid),
+			};
 
 		case actionTypes.SET_FOCUS:
 			return { ...state, focus: action.focus };

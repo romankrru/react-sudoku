@@ -67,6 +67,8 @@ const App = () => {
 	const handleKeyPress = (e) => {
 		if (e.key === "Shift") toggleMode();
 
+		if (!timer.isRunning) return;
+
 		const [focusRowIdx, focusColIdx] = state.focus;
 
 		if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.code)) {
@@ -121,6 +123,8 @@ const App = () => {
 
 	const handleAppKeyboard = (value) => {
 		if (value === "Mode") toggleMode();
+
+		if (!timer.isRunning) return;
 
 		const [focusRowIdx, focusColIdx] = state.focus;
 

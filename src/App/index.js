@@ -1,7 +1,7 @@
 import React, { useReducer, useMemo } from "react";
 import _ from "lodash";
 
-import { useEventListener } from "../generic/hooks";
+import { useEventListener, useTimer } from "../generic/hooks";
 import { modes } from "../constants";
 import Board from "./Board";
 import Header from "./Header";
@@ -34,6 +34,7 @@ const getCompletedKeys = (grid) => {
 
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const [seconds, toggle] = useTimer(1000);
 
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,
@@ -139,7 +140,7 @@ const App = () => {
 
 	return (
 		<div>
-			<Header />
+			<Header seconds={seconds} />
 			<Board
 				toggleCandidate={toggleCandidate}
 				grid={state.grid}

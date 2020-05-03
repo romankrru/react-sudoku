@@ -1,0 +1,57 @@
+.timer {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+
+    color: white;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.timerClock {
+    margin-right: 6px;
+}
+
+.timerLegend {
+    font-size: 14px;
+}
+
+.timerControl {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+
+    transition: all .2s ease;
+    border-radius: 50%;
+}
+
+.timerControl::before,
+.timerControl::after {
+    content: "";
+
+    position: absolute;
+
+    height: 18px;
+    width: 4px;
+
+    background-color: white;
+    border-radius: 1px;
+}
+
+.timerControl::before {
+    top: 9px;
+    left: 11px;
+}
+
+.timerControl::after {
+    top: 9px;
+    left: 21px;
+}
+
+.timerControl:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

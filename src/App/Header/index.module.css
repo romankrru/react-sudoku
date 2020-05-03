@@ -1,0 +1,42 @@
+.header {
+    height: 300px;
+    background-color: #2979FA;
+}
+
+.headerContainer {
+    position: relative;
+
+    width: 450px;
+    margin: 0 auto;
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.headerControls {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerControlsButton {
+    width: 100%;
+    margin-right: 30px;
+}
+
+.headerControlsButton:last-child {
+    margin-right: 0;
+}
+
+.difficultyControls {
+    position: absolute;
+    top: 160px;
+    left: 475px;
+}
+
+.difficultyRadio {
+    margin-bottom: 6px;
+}

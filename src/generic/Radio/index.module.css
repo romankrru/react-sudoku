@@ -1,0 +1,53 @@
+.radio {
+    display: flex;
+
+    line-height: 23px;
+
+    color: white;
+    cursor: pointer;
+}
+
+.input {
+    display: none;
+}
+
+.indicator {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+}
+
+.indicator::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 24px;
+    height: 24px;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: all .2s ease;
+}
+
+.radio:hover .indicator::before {
+    border-color: white;
+}
+
+.input[type="radio"]:checked + .indicator::after {
+    content: "";
+
+    position: absolute;
+    top: 4px;
+    left: 4px;
+
+    width: 16px;
+    height: 16px;
+
+    background-color: white;
+    border-radius: 50%;
+}

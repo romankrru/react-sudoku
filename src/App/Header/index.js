@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 
 import Button from "../../generic/Button";
 import Radio from "../../generic/Radio";
@@ -59,5 +60,15 @@ const Header = (props) => (
 		</div>
 	</header>
 );
+
+Header.propTypes = {
+	seconds: T.number.isRequired,
+	newGame: T.func.isRequired,
+	reset: T.func.isRequired,
+	difficulty: T.string.isRequired,
+	setDifficulty: T.func.isRequired,
+	toggleTimer: T.func.isRequired,
+	isTimerRunning: T.bool.isRequired,
+};
 
 export default Header;

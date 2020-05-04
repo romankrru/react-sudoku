@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import T from "prop-types";
 import cn from "classnames";
 
 import styles from "./index.module.css";
@@ -47,6 +48,12 @@ const Timer = (props) => {
 			></div>
 		</div>
 	);
+};
+
+Timer.propTypes = {
+	seconds: T.number.isRequired,
+	toggle: T.func.isRequired,
+	isRunning: T.bool.isRequired,
 };
 
 export default Timer;

@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import T from "prop-types";
 
 import { modes } from "../../constants";
 import Button from "./Button";
@@ -35,5 +36,11 @@ const Keyboard = (props) => (
 		</div>
 	</div>
 );
+
+Keyboard.propTypes = {
+	completedKeys: T.arrayOf(T.number).isRequired,
+	onClick: T.func.isRequired,
+	mode: T.string.isRequired,
+};
 
 export default Keyboard;

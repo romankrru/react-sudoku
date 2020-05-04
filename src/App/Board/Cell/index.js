@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import T from "prop-types";
 
 import Candidates from "./Candidates";
 import styles from "./index.module.css";
@@ -27,5 +28,18 @@ const Cell = (props) => (
 		)}
 	</div>
 );
+
+Cell.propTypes = {
+	setFocus: T.func.isRequired,
+	rowIdx: T.number.isRequired,
+	colIdx: T.number.isRequired,
+	isFocus: T.bool.isRequired,
+	isHighlighted: T.bool.isRequired,
+	changeable: T.bool.isRequired,
+	isValid: T.bool.isRequired,
+	value: T.number,
+	candidates: T.arrayOf(T.number).isRequired,
+	toggleCandidate: T.func.isRequired,
+};
 
 export default Cell;

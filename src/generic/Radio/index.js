@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import T from "prop-types";
 
 import styles from "./index.module.css";
 
@@ -17,5 +18,14 @@ const Radio = (props) => (
 		{props.children}
 	</label>
 );
+
+Radio.propTypes = {
+	className: T.string,
+	name: T.string,
+	value: T.string,
+	checked: T.bool,
+	onChange: T.func,
+	children: T.node,
+};
 
 export default Radio;

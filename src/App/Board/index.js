@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
+import T from "prop-types";
 
+import { gridType } from "../../generic/types";
 import { validate } from "../../generic/sudoku/";
 import Cell from "./Cell";
 import Overlay from "./Overlay";
@@ -31,6 +33,15 @@ const Board = (props) => {
 			{!props.isTimerRunning && <Overlay resume={props.toggleTimer} />}
 		</div>
 	);
+};
+
+Board.propTypes = {
+	toggleCandidate: T.func.isRequired,
+	setFocus: T.func.isRequired,
+	isTimerRunning: T.bool.isRequired,
+	toggleTimer: T.func.isRequired,
+	focus: T.arrayOf(T.number).isRequired,
+	grid: gridType,
 };
 
 export default Board;

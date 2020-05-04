@@ -84,7 +84,7 @@ const App = () => {
 		else timer.reset();
 	};
 
-	const handleKeyPress = (e) => {
+	useEventListener("keydown", (e) => {
 		if (e.key === "Shift") toggleMode();
 
 		if (!timer.isRunning) return;
@@ -132,14 +132,21 @@ const App = () => {
 
 		if (["Backspace", "Delete"].includes(e.code))
 			clearCell(focusRowIdx, focusColIdx);
-	};
+	});
 
-	const handleKeyUp = (e) => {
+	useEventListener("keyup", (e) => {
 		if (e.key === "Shift") toggleMode();
-	};
+	});
 
-	useEventListener("keydown", handleKeyPress);
-	useEventListener("keyup", handleKeyUp);
+	useEventListener(
+		"visibilitychange",
+
+		() => {
+			if (document.visibilityState !== "visible") timer.stop();
+		},
+
+		document
+	);
 
 	const handleAppKeyboard = (value) => {
 		if (value === "Mode") toggleMode();

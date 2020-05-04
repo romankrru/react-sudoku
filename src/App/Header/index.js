@@ -26,7 +26,6 @@ const Header = (props) => (
 				<Button onClick={props.reset} className={styles.headerControlsButton}>
 					Reset
 				</Button>
-				<Button className={styles.headerControlsButton}>Solve</Button>
 			</div>
 			<form className={styles.difficultyControls}>
 				<Radio

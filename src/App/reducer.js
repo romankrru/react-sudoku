@@ -1,3 +1,5 @@
+import ls from "local-storage";
+
 import { EMPTY_CELL, modes, difficulties } from "../constants";
 import { generateGrid } from "../generic/sudoku";
 
@@ -21,6 +23,14 @@ const initialState = {
 		[difficulties.MEDIUM]: null,
 		[difficulties.HARD]: null,
 	},
+};
+
+const initState = () => {
+	const stateFromLs = ls.get("state");
+
+	if (!stateFromLs) return initialState;
+
+	return stateFromLs;
 };
 
 const actionTypes = {
@@ -147,5 +157,5 @@ const reducer = (state, action) => {
 	}
 };
 
-export { actionTypes, initialState };
+export { actionTypes, initState };
 export default reducer;

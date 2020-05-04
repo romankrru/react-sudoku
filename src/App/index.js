@@ -1,12 +1,13 @@
 import React, { useReducer, useMemo } from "react";
 import _ from "lodash";
+import ls from "local-storage";
 
 import { useEventListener, useTimer } from "../generic/hooks";
 import { modes } from "../constants";
 import Board from "./Board";
 import Header from "./Header";
 import Keyboard from "./Keyboard";
-import reducer, { actionTypes, initialState } from "./reducer";
+import reducer, { actionTypes, initState } from "./reducer";
 
 // ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ..., 'Digit9']
 const digitKeys = _.range(1, 10).reduce((acc, i) => {
@@ -33,8 +34,8 @@ const getCompletedKeys = (grid) => {
 };
 
 const App = () => {
-	const [state, dispatch] = useReducer(reducer, initialState);
-	const timer = useTimer();
+	const [state, dispatch] = useReducer(reducer, undefined, initState);
+	const timer = useTimer(() => ls.get("timer"));
 
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,
@@ -136,6 +137,11 @@ const App = () => {
 
 	useEventListener("keyup", (e) => {
 		if (e.key === "Shift") toggleMode();
+	});
+
+	useEventListener("beforeunload", () => {
+		ls.set("timer", timer.seconds);
+		ls.set("state", state);
 	});
 
 	useEventListener(

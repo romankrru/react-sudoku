@@ -6,7 +6,7 @@
 .headerContainer {
     position: relative;
 
-    width: 450px;
+    max-width: 450px;
     margin: 0 auto;
 }
 
@@ -39,4 +39,17 @@
 
 .difficultyRadio {
     margin-bottom: 12px;
+}
+
+@media (max-width: 760px) {
+    .headerControls {
+        margin-bottom: 21px;
+    }
+
+    .difficultyControls {
+        position: static;
+
+        display: flex;
+        justify-content: space-around;
+    }
 }

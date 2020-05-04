@@ -1,0 +1,36 @@
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+}
+
+.footerLink {
+	position: relative;
+
+	padding-left: 47px;
+
+	color: #2979fa;
+	font-size: 18px;
+
+	text-decoration: none;
+}
+
+.footerLink:hover {
+	text-decoration: underline;
+}
+
+.footerLink::before {
+	content: "";
+
+	position: absolute;
+	top: -8px;
+	left: 0;
+
+	width: 36px;
+	height: 36px;
+
+	background-image: url('./assets/github-mark.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+}

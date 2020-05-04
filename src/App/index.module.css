@@ -1,0 +1,4 @@
+.appContent {
+    /* footer height */
+    min-height: calc(100vh - 80px);
+}

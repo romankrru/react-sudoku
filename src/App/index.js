@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from "react";
+import React, { useReducer, useMemo, Fragment } from "react";
 import _ from "lodash";
 import ls from "local-storage";
 
@@ -7,7 +7,9 @@ import { modes } from "../constants";
 import Board from "./Board";
 import Header from "./Header";
 import Keyboard from "./Keyboard";
+import Footer from "./Footer";
 import reducer, { actionTypes, initState } from "./reducer";
+import styles from "./index.module.css";
 
 // ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ..., 'Digit9']
 const digitKeys = _.range(1, 10).reduce((acc, i) => {
@@ -176,32 +178,35 @@ const App = () => {
 	};
 
 	return (
-		<div>
-			<Header
-				reset={resetGrid}
-				newGame={newGame}
-				seconds={timer.seconds}
-				toggleTimer={timer.toggle}
-				isTimerRunning={timer.isRunning}
-				setDifficulty={setDifficulty}
-				difficulty={state.difficulty}
-			/>
+		<Fragment>
+			<div className={styles.appContent}>
+				<Header
+					reset={resetGrid}
+					newGame={newGame}
+					seconds={timer.seconds}
+					toggleTimer={timer.toggle}
+					isTimerRunning={timer.isRunning}
+					setDifficulty={setDifficulty}
+					difficulty={state.difficulty}
+				/>
 
-			<Board
-				isTimerRunning={timer.isRunning}
-				toggleTimer={timer.toggle}
-				toggleCandidate={toggleCandidate}
-				grid={state.grid}
-				focus={state.focus}
-				setFocus={setFocus}
-			/>
+				<Board
+					isTimerRunning={timer.isRunning}
+					toggleTimer={timer.toggle}
+					toggleCandidate={toggleCandidate}
+					grid={state.grid}
+					focus={state.focus}
+					setFocus={setFocus}
+				/>
 
-			<Keyboard
-				completedKeys={completedKeys}
-				mode={state.mode}
-				onClick={handleAppKeyboard}
-			/>
-		</div>
+				<Keyboard
+					completedKeys={completedKeys}
+					mode={state.mode}
+					onClick={handleAppKeyboard}
+				/>
+			</div>
+			<Footer />
+		</Fragment>
 	);
 };
 

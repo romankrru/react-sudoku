@@ -71,8 +71,18 @@ const App = () => {
 		timer.reset();
 	};
 
-	const setDifficulty = (difficulty) =>
-		dispatch({ type: actionTypes.SET_DIFFICULTY, difficulty: difficulty });
+	const setDifficulty = (difficulty) => {
+		const prevGame = state.savedGames[difficulty];
+
+		dispatch({
+			type: actionTypes.SET_DIFFICULTY,
+			difficulty: difficulty,
+			savedTimer: timer.seconds,
+		});
+
+		if (prevGame) timer.set(prevGame.savedTimer);
+		else timer.reset();
+	};
 
 	const handleKeyPress = (e) => {
 		if (e.key === "Shift") toggleMode();

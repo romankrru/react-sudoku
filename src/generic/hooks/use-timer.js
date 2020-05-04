@@ -6,6 +6,7 @@ const useTimer = (initialValue = 0) => {
 
 	const toggle = () => setIsRunning(!isRunning);
 	const reset = () => setSeconds(0);
+	const set = (seconds) => setSeconds(seconds);
 
 	useEffect(() => {
 		let intervalId = null;
@@ -21,7 +22,7 @@ const useTimer = (initialValue = 0) => {
 		return () => clearInterval(intervalId);
 	}, [isRunning]);
 
-	return { seconds, toggle, isRunning, reset };
+	return { seconds, toggle, isRunning, reset, set };
 };
 
 export default useTimer;

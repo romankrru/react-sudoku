@@ -15,6 +15,12 @@ const initialState = {
 	focus: [],
 	mode: modes.NORMAL,
 	difficulty: difficulties.EASY,
+
+	savedGames: {
+		[difficulties.EASY]: null,
+		[difficulties.MEDIUM]: null,
+		[difficulties.HARD]: null,
+	},
 };
 
 const actionTypes = {
@@ -105,11 +111,27 @@ const reducer = (state, action) => {
 				focus: [],
 			};
 
-		case actionTypes.SET_DIFFICULTY:
+		case actionTypes.SET_DIFFICULTY: {
 			return {
 				...state,
+				focus: [],
+
+				savedGames: {
+					...state.savedGames,
+
+					[state.difficulty]: {
+						grid: state.grid,
+						savedTimer: action.savedTimer,
+					},
+				},
+
 				difficulty: action.difficulty,
+
+				grid: state.savedGames[action.difficulty]
+					? state.savedGames[action.difficulty].grid
+					: loadGrid(generateGrid(action.difficulty)),
 			};
+		}
 
 		case actionTypes.SET_FOCUS:
 			return { ...state, focus: action.focus };

@@ -19,7 +19,9 @@ const Header = (props) => (
 				/>
 			</div>
 			<div className={styles.headerControls}>
-				<Button className={styles.headerControlsButton}>New</Button>
+				<Button onClick={props.newGame} className={styles.headerControlsButton}>
+					New
+				</Button>
 				<Button onClick={props.reset} className={styles.headerControlsButton}>
 					Reset
 				</Button>

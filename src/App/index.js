@@ -66,6 +66,11 @@ const App = () => {
 
 	const toggleMode = () => dispatch({ type: actionTypes.TOGGLE_MODE });
 
+	const newGame = () => {
+		dispatch({ type: actionTypes.NEW_GRID });
+		timer.reset();
+	};
+
 	const setDifficulty = (difficulty) =>
 		dispatch({ type: actionTypes.SET_DIFFICULTY, difficulty: difficulty });
 
@@ -151,6 +156,7 @@ const App = () => {
 		<div>
 			<Header
 				reset={resetGrid}
+				newGame={newGame}
 				seconds={timer.seconds}
 				toggleTimer={timer.toggle}
 				isTimerRunning={timer.isRunning}

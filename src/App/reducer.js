@@ -1,15 +1,17 @@
 import { EMPTY_CELL, modes, difficulties } from "../constants";
 import { generateGrid } from "../generic/sudoku";
 
-const initialState = {
-	grid: generateGrid(difficulties.EASY).map((row) =>
+const loadGrid = (grid) =>
+	grid.map((row) =>
 		row.map((cell) => ({
 			value: Number(cell) === EMPTY_CELL ? null : Number(cell),
 			changeable: Number(cell) === EMPTY_CELL,
 			candidates: [],
 		}))
-	),
+	);
 
+const initialState = {
+	grid: loadGrid(generateGrid(difficulties.EASY)),
 	focus: [],
 	mode: modes.NORMAL,
 	difficulty: difficulties.EASY,
@@ -23,6 +25,7 @@ const actionTypes = {
 	TOGGLE_MODE: "TOGGLE_MODE",
 	SET_FOCUS: "SET_FOCUS",
 	RESET_GRID: "RESET_GRID",
+	NEW_GRID: "NEW_GRID",
 	SET_DIFFICULTY: "SET_DIFFICULTY",
 };
 
@@ -93,6 +96,13 @@ const reducer = (state, action) => {
 						cell.changeable ? { ...cell, value: null, candidates: [] } : cell
 					)
 				),
+			};
+
+		case actionTypes.NEW_GRID:
+			return {
+				...state,
+				grid: loadGrid(generateGrid(state.difficulty)),
+				focus: [],
 			};
 
 		case actionTypes.SET_DIFFICULTY:

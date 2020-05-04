@@ -1,4 +1,4 @@
-const difficulty = {
+const difficulties = {
 	EASY: "EASY",
 	MEDIUM: "MEDIUM",
 	HARD: "HARD",
@@ -11,4 +11,4 @@ const modes = {
 
 const EMPTY_CELL = 0;
 
-export { difficulty, modes, EMPTY_CELL };
+export { difficulties, modes, EMPTY_CELL };

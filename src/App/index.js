@@ -66,6 +66,9 @@ const App = () => {
 
 	const toggleMode = () => dispatch({ type: actionTypes.TOGGLE_MODE });
 
+	const setDifficulty = (difficulty) =>
+		dispatch({ type: actionTypes.SET_DIFFICULTY, difficulty: difficulty });
+
 	const handleKeyPress = (e) => {
 		if (e.key === "Shift") toggleMode();
 
@@ -151,6 +154,8 @@ const App = () => {
 				seconds={timer.seconds}
 				toggleTimer={timer.toggle}
 				isTimerRunning={timer.isRunning}
+				setDifficulty={setDifficulty}
+				difficulty={state.difficulty}
 			/>
 
 			<Board

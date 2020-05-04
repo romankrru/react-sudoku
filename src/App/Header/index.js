@@ -2,7 +2,7 @@ import React from "react";
 
 import Button from "../../generic/Button";
 import Radio from "../../generic/Radio";
-import { difficulty } from "../../constants";
+import { difficulties } from "../../constants";
 import Timer from "./Timer";
 import styles from "./index.module.css";
 import logo from "./assets/logo.svg";
@@ -28,21 +28,27 @@ const Header = (props) => (
 			<form className={styles.difficultyControls}>
 				<Radio
 					name="difficulty"
-					value={difficulty.EASY}
+					value={difficulties.EASY}
+					checked={props.difficulty === difficulties.EASY}
+					onChange={(e) => props.setDifficulty(e.target.value)}
 					className={styles.difficultyRadio}
 				>
 					Easy
 				</Radio>
 				<Radio
 					name="difficulty"
-					value={difficulty.MEDIUM}
+					value={difficulties.MEDIUM}
+					checked={props.difficulty === difficulties.MEDIUM}
+					onChange={(e) => props.setDifficulty(e.target.value)}
 					className={styles.difficultyRadio}
 				>
 					Medium
 				</Radio>
 				<Radio
 					name="difficulty"
-					value={difficulty.HARD}
+					value={difficulties.HARD}
+					checked={props.difficulty === difficulties.HARD}
+					onChange={(e) => props.setDifficulty(e.target.value)}
 					className={styles.difficultyRadio}
 				>
 					Hard

@@ -1,33 +1,18 @@
-import { EMPTY_CELL, modes } from "../constants";
-
-const _grid = [
-	[3, 0, 6, 5, 0, 8, 4, 0, 0],
-	[5, 2, 0, 0, 0, 0, 0, 0, 0],
-	[0, 8, 7, 0, 0, 0, 0, 3, 1],
-	[0, 0, 3, 0, 1, 0, 0, 8, 0],
-	[9, 0, 0, 8, 6, 3, 0, 0, 5],
-	[0, 5, 0, 0, 9, 0, 6, 0, 0],
-	[1, 3, 0, 0, 0, 0, 2, 5, 0],
-	[0, 0, 0, 0, 0, 0, 0, 7, 4],
-	[0, 0, 5, 2, 0, 6, 3, 0, 0],
-];
-
-const transformGrid = (grid) => {
-	return _grid.map((row) =>
-		row.map((cell) => {
-			return {
-				value: cell === EMPTY_CELL ? null : cell,
-				changeable: cell === EMPTY_CELL,
-				candidates: [],
-			};
-		})
-	);
-};
+import { EMPTY_CELL, modes, difficulties } from "../constants";
+import { generateGrid } from "../generic/sudoku";
 
 const initialState = {
-	grid: transformGrid(_grid),
+	grid: generateGrid(difficulties.EASY).map((row) =>
+		row.map((cell) => ({
+			value: Number(cell) === EMPTY_CELL ? null : Number(cell),
+			changeable: Number(cell) === EMPTY_CELL,
+			candidates: [],
+		}))
+	),
+
 	focus: [],
 	mode: modes.NORMAL,
+	difficulty: difficulties.EASY,
 };
 
 const actionTypes = {
@@ -38,6 +23,7 @@ const actionTypes = {
 	TOGGLE_MODE: "TOGGLE_MODE",
 	SET_FOCUS: "SET_FOCUS",
 	RESET_GRID: "RESET_GRID",
+	SET_DIFFICULTY: "SET_DIFFICULTY",
 };
 
 const updateCell = (grid, rowIdx, colIdx, data) => {
@@ -102,7 +88,17 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				focus: [],
-				grid: transformGrid(_grid),
+				grid: state.grid.map((row) =>
+					row.map((cell) =>
+						cell.changeable ? { ...cell, value: null, candidates: [] } : cell
+					)
+				),
+			};
+
+		case actionTypes.SET_DIFFICULTY:
+			return {
+				...state,
+				difficulty: action.difficulty,
 			};
 
 		case actionTypes.SET_FOCUS:

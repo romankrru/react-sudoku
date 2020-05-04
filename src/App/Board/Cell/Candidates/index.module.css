@@ -1,42 +1,45 @@
 .candidates {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    width: 48px;
-    height: 48px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 
-    font-size: 11px;
-    line-height: 20px;
-    color: transparent;
+	width: 100%;
+	height: 100%;
+
+	font-size: 11px;
+	color: transparent;
 }
 
 .candidates:hover {
-    color:#C4C4C4;
+	color: #c4c4c4;
 }
 
 .candidateCell {
-    width: 16px;
-    height: 16px;
-    transition: all .3s ease;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+
+	transition: all 0.3s ease;
 }
 
 .candidateCell:hover {
-    color: #7EAEFC;
+	color: #7eaefc;
 }
 
 .candidateCellActive {
-    color: #2979FA;
+	color: #2979fa;
 }
 
 .candidateCellActive:hover {
-    color: #2979FA;
+	color: #2979fa;
 }
 
 .candidateCellHidden {
-    color: transparent;
+	color: transparent;
 }
 
 .candidateCellHidden:hover {
-    color: transparent;
+	color: transparent;
 }

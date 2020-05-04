@@ -1,94 +1,110 @@
+.cellContainer {
+	position: relative;
+}
+
+.cellContainer::before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
 .cell {
-    width: 50px;
-    height: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
 
-    font-size: 36px;
-    line-height: 50px;
-    text-align: center;
+	display: flex;
+	height: 100%;
+	width: 100%;
 
-    background: white;
-    border-right: 1px solid #EDF1F8;
-    border-bottom: 1px solid #EDF1F8;
+	font-size: 30px;
+	align-items: center;
+	justify-content: center;
 
-    cursor: pointer;
+	background: white;
+	border-right: 1px solid #edf1f8;
+	border-bottom: 1px solid #edf1f8;
+
+	cursor: pointer;
 }
 
 .changeableCell {
-    color: #2979FA;
+	color: #2979fa;
 }
 
 .cellHighlighted {
-    background-color: #F3F8FF;
+	background-color: #f3f8ff;
 }
 
 .changeableCellInvalid {
-    color: #FA2981;
-}
-
-.nativeCellInvalid {
-    position: relative;
+	color: #fa2981;
 }
 
 .nativeCellInvalid::before {
-    content: "";
+	content: "";
 
-    position: absolute;
-    top: 41px;
-    left: 22px;
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
 
-    width: 6px;
-    height: 6px;
+	width: 6px;
+	height: 6px;
 
-    border-radius: 50%;
-    background-color: #FA2981;
+	border-radius: 50%;
+	background-color: #fa2981;
 }
 
 .cellFocus {
-    position: relative;
-    background-color: white;
+	background-color: white;
 }
 
 .cellFocus::after {
-    content: "";
-    pointer-events: none;
+	content: "";
+	pointer-events: none;
 
-    position: absolute;
-    top: 0px;
-    left: 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 
-    width: 50px;
-    height: 50px;
-    
-    border: 2px solid #2979FA;
-    border-radius: 6px;
+	width: 100%;
+	height: 100%;
+
+	border: 2px solid #2979fa;
+	border-radius: 6px;
 }
 
-.cell:nth-child(n+19):nth-child(-n+27),
-.cell:nth-child(n+46):nth-child(-n+54) {
-    border-bottom: 1px solid #E7EFFF;
+.cellContainer:nth-child(n + 19):nth-child(-n + 27),
+.cellContainer:nth-child(n + 46):nth-child(-n + 54) {
+	border-bottom: 1px solid #e7efff;
 }
 
-.cell:nth-child(n+28):nth-child(-n+36),
-.cell:nth-child(n+55):nth-child(-n+64) {
-    border-top: 1px solid #E7EFFF;
+.cellContainer:nth-child(n + 28):nth-child(-n + 36),
+.cellContainer:nth-child(n + 55):nth-child(-n + 63) {
+	border-top: 1px solid #e7efff;
 }
 
-.cell:nth-child(3n) {
-    border-right: 1px solid #E7EFFF;
+.cellContainer:nth-child(3n) {
+	border-right: 1px solid #e7efff;
 }
 
-.cell:nth-child(3n + 1) {
-    border-left: 1px solid #E7EFFF;
+.cellContainer:nth-child(3n + 1) {
+	border-left: 1px solid #e7efff;
 }
 
-.cell:nth-child(9n) {
-    border-right: none;
+.cellContainer:nth-child(9n) {
+	border-right: none;
 }
 
-.cell:nth-child(9n + 1) {
-    border-left: none;
+.cellContainer:nth-child(9n + 1) {
+	border-left: none;
 }
 
-.cell:nth-child(n + 73) {
-    border-bottom: none;
+.cellContainer:nth-child(n + 73) {
+	border-bottom: none;
+}
+
+@media (min-width: 761px) {
+	.cell {
+		font-size: 36px;
+	}
 }

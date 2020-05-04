@@ -1,10 +1,16 @@
 .keyboard {
-    margin: 0 auto;
-    width: 600px;
+	margin: 0 10px;
+	max-width: 600px;
 }
 
 .keyboardRow {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 25px;
+}
+
+@media (min-width: 601px) {
+	.keyboard {
+		margin: 0 auto;
+	}
 }

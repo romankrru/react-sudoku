@@ -20,7 +20,7 @@ const Candidates = (props) => (
 							!props.candidates.includes(n) && !props.isFocus,
 					})}
 				>
-					{n}
+					<span>{n}</span>
 				</div>
 			);
 		})}

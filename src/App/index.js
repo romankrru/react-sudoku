@@ -3,10 +3,12 @@ import _ from "lodash";
 import ls from "local-storage";
 
 import { useEventListener, useTimer } from "../generic/hooks";
+import { isSolved } from "../generic/sudoku";
 import { modes } from "../constants";
 import Board from "./Board";
 import Header from "./Header";
 import Keyboard from "./Keyboard";
+import Notification from "./Notification";
 import Footer from "./Footer";
 import reducer, { actionTypes, initState } from "./reducer";
 import styles from "./index.module.css";
@@ -42,6 +44,8 @@ const App = () => {
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,
 	]);
+
+	const solved = useMemo(() => isSolved(state.grid), [state.grid]);
 
 	const setFocus = (focus) =>
 		dispatch({ type: actionTypes.SET_FOCUS, focus: focus });
@@ -146,16 +150,6 @@ const App = () => {
 		ls.set("state", state);
 	});
 
-	useEventListener(
-		"visibilitychange",
-
-		() => {
-			if (document.visibilityState !== "visible") timer.stop();
-		},
-
-		document
-	);
-
 	const handleAppKeyboard = (value) => {
 		if (value === "Mode") toggleMode();
 
@@ -204,6 +198,13 @@ const App = () => {
 					mode={state.mode}
 					onClick={handleAppKeyboard}
 				/>
+
+				{solved && (
+					<Notification title="Success" onConfirm={newGame}>
+						You have successfully solved this sudoku!
+						<br /> Press New to try another one.
+					</Notification>
+				)}
 			</div>
 			<Footer />
 		</Fragment>

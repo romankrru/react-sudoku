@@ -1,0 +1,68 @@
+.notification {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	max-width: 400px;
+	padding: 15px;
+	padding-top: 40px;
+
+	text-align: center;
+
+	background: white;
+	border-radius: 4px;
+
+	transform: translate(-50%, -100%);
+}
+
+.notification h4 {
+	margin-top: 0;
+	margin-bottom: 20px;
+
+	font-weight: 500;
+	font-size: 24px;
+}
+
+.notification::before {
+	content: '';
+
+	position: absolute;
+	top: 0;
+	left: 50%;
+
+	width: 72px;
+	height: 72px;
+	margin-left: -36px;
+	margin-top: -36px;
+
+	background-image: url('./assets/icon.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.notificationContent {
+	margin-bottom: 20px;
+	
+	font-size: 16px;
+	line-height: 1.3;
+}
+
+.notificationControls {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.notificationConfirm {
+	width: 33%;
+}
+
+.notificationBackdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0, 0, 0, 0.2);
+}

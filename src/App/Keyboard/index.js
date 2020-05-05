@@ -12,6 +12,8 @@ const Keyboard = (props) => (
 			{_.range(1, 8).map((i) => (
 				<Button
 					key={i}
+					candidate={props.mode === modes.CANDIDATE}
+					candidateValue={i}
 					disabled={props.completedKeys.includes(i)}
 					onClick={() => props.onClick(i)}
 				>
@@ -23,6 +25,8 @@ const Keyboard = (props) => (
 			{_.range(8, 10).map((i) => (
 				<Button
 					key={i}
+					candidate={props.mode === modes.CANDIDATE}
+					candidateValue={i}
 					disabled={props.completedKeys.includes(i)}
 					onClick={() => props.onClick(i)}
 				>

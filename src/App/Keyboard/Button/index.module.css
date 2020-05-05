@@ -5,7 +5,7 @@
 	margin-right: 3%;
 
 	font-size: 24px;
-	line-height: 34px;
+	line-height: 47px;
 	text-align: center;
 
 	background-color: #f7f9fc;
@@ -41,6 +41,24 @@
 .button:focus {
 	outline: none;
 }
+
+.buttonCandidate {
+	display: flex;
+	padding: 6px;
+
+	font-size: 16px;
+	line-height: 1;
+}
+
+.buttonCandidate-1 { justify-content: flex-start; align-items: flex-start;  }
+.buttonCandidate-2 { justify-content: center; align-items: flex-start;  }
+.buttonCandidate-3 { justify-content: flex-end; align-items: flex-start;  }
+.buttonCandidate-4 { justify-content: flex-start; align-items: center;  }
+.buttonCandidate-5 { justify-content: center; align-items: center;  }
+.buttonCandidate-6 { justify-content: flex-end; align-items: center;  }
+.buttonCandidate-7 { justify-content: flex-start; align-items: flex-end;  }
+.buttonCandidate-8 { justify-content: center; align-items: flex-end;  }
+.buttonCandidate-9 { justify-content: flex-end; align-items: flex-end;  }
 
 @media (min-width: 601px) {
 	.keyboard {

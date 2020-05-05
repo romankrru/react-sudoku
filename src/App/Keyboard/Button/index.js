@@ -10,9 +10,9 @@ const Button = (props) => (
 			[styles.buttonBig]: props.size === "big",
 			[styles.buttonCandidate]: props.candidate,
 			[styles[`buttonCandidate-${props.candidateValue}`]]: props.candidate,
+			[styles.buttonDisabled]: props.disabled,
 		})}
 		onClick={props.onClick}
-		disabled={props.disabled}
 	>
 		<span>{props.children}</span>
 	</div>

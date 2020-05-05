@@ -13,7 +13,7 @@
 	border-radius: 10px;
 	cursor: pointer;
 
-	transition: all 0.2s ease;
+	transition: border-color 0.2s ease;
 }
 
 .button:last-child {
@@ -24,7 +24,7 @@
 	width: 240px;
 }
 
-.button:disabled {
+.buttonDisabled {
 	color: #dce1e8;
 
 	cursor: default;

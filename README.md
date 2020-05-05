@@ -7,9 +7,9 @@
 ## Controls
 Use mouse or
 
-<kbd>←</kbd>, <kbd>→</kbd>, <kbd>↑</kbd>, <kbd>↓</kbd> - for navigation
-<kbd>1</kbd> - <kbd>9</kbd> - place number into cell
-<kbd>Shift</kbd> - invert input mode (normal/candidate)
+<kbd>←</kbd>, <kbd>→</kbd>, <kbd>↑</kbd>, <kbd>↓</kbd> - for navigation <br>
+<kbd>1</kbd> ... <kbd>9</kbd> - place number into cell <br>
+<kbd>Shift</kbd> - invert input method (normal/candidate) 
 
 ## Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

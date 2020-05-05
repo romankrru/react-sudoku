@@ -1,3 +1,17 @@
+## Demo
+
+### [Live](https://xenodochial-yonath-b26e02.netlify.app/)
+
+<img alt="Sudoku Screenshot" src="https://github.com/romankru/react-sudoku/raw/master/assets/screenshot.png" />
+
+## Controls
+Use mouse or
+
+<kbd>←</kbd>, <kbd>→</kbd>, <kbd>↑</kbd>, <kbd>↓</kbd> - for navigation
+<kbd>1</kbd> - <kbd>9</kbd> - place number into cell
+<kbd>Shift</kbd> - invert input mode (normal/candidate)
+
+## Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

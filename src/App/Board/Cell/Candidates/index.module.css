@@ -10,10 +10,6 @@
 	color: transparent;
 }
 
-.candidates:hover {
-	color: #c4c4c4;
-}
-
 .candidateCell {
 	display: flex;
 	width: 100%;
@@ -24,10 +20,6 @@
 	transition: all 0.3s ease;
 }
 
-.candidateCell:hover {
-	color: #7eaefc;
-}
-
 .candidateCellActive {
 	color: #2979fa;
 }
@@ -36,10 +28,19 @@
 	color: #2979fa;
 }
 
-.candidateCellHidden {
-	color: transparent;
-}
+@media (min-width: 761px) {
+	.candidates:hover {
+		color: #c4c4c4;
+	}
 
-.candidateCellHidden:hover {
-	color: transparent;
+	.candidateCell:hover {
+		color: #7eaefc;
+	}
+	.candidateCellHidden {
+		color: transparent;
+	}
+
+	.candidateCellHidden:hover {
+		color: transparent;
+	}
 }

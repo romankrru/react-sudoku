@@ -10,9 +10,10 @@ const Candidates = (props) => (
 		{_.range(1, 10).map((n) => {
 			return (
 				<div
-					{...(props.isFocus && {
-						onClick: () => props.toggleCandidate(props.rowIdx, props.colIdx, n),
-					})}
+					onMouseDown={() => {
+						if (props.isMobile || !props.isFocus) return;
+						props.toggleCandidate(props.rowIdx, props.colIdx, n);
+					}}
 					key={n}
 					className={cn(styles.candidateCell, {
 						[styles.candidateCellActive]: props.candidates.includes(n),
@@ -32,6 +33,7 @@ Candidates.propTypes = {
 	toggleCandidate: T.func.isRequired,
 	rowIdx: T.number.isRequired,
 	colIdx: T.number.isRequired,
+	isMobile: T.bool.isRequired,
 	candidates: T.arrayOf(T.number).isRequired,
 };
 

@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 const Cell = (props) => (
 	<div className={styles.cellContainer}>
 		<div
-			onClick={() => props.setFocus([props.rowIdx, props.colIdx])}
+			onMouseDown={() => props.setFocus([props.rowIdx, props.colIdx])}
 			className={cn(styles.cell, {
 				[styles.cellFocus]: props.isFocus,
 				[styles.cellHighlighted]: props.isHighlighted,
@@ -23,6 +23,7 @@ const Cell = (props) => (
 				<Candidates
 					rowIdx={props.rowIdx}
 					colIdx={props.colIdx}
+					isMobile={props.isMobile}
 					toggleCandidate={props.toggleCandidate}
 					candidates={props.candidates}
 					isFocus={props.isFocus}
@@ -33,6 +34,7 @@ const Cell = (props) => (
 );
 
 Cell.propTypes = {
+	isMobile: T.bool.isRequired,
 	setFocus: T.func.isRequired,
 	rowIdx: T.number.isRequired,
 	colIdx: T.number.isRequired,

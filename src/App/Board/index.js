@@ -3,12 +3,15 @@ import T from "prop-types";
 
 import { gridType } from "../../generic/types";
 import { validate } from "../../generic/sudoku/";
+import { useWindowSize } from "../../generic/hooks";
 import Cell from "./Cell";
 import Overlay from "./Overlay";
 import styles from "./index.module.css";
 
 const Board = (props) => {
 	const invalidCells = useMemo(() => validate(props.grid), [props.grid]);
+	const { width } = useWindowSize();
+	const isMobile = width < 761;
 
 	return (
 		<div className={styles.board}>
@@ -17,6 +20,7 @@ const Board = (props) => {
 					<Cell
 						rowIdx={i}
 						colIdx={j}
+						isMobile={isMobile}
 						isValid={!invalidCells.includes(`${i};${j}`)}
 						toggleCandidate={props.toggleCandidate}
 						changeable={cell.changeable}

@@ -2,7 +2,7 @@
 
 ### [Live](https://xenodochial-yonath-b26e02.netlify.app/)
 
-<img alt="Sudoku Screenshot" src="https://github.com/romankru/react-sudoku/raw/master/assets/screenshot.png" />
+<img alt="Sudoku Screenshot" src="https://github.com/romankrru/react-sudoku/raw/master/assets/screenshot.png" />
 
 ## Controls
 Use mouse or

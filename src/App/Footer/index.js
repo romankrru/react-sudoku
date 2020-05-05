@@ -3,7 +3,10 @@ import styles from "./index.module.css";
 
 const Footer = () => (
 	<footer className={styles.footer}>
-		<a href="https://github.com/romankrru" className={styles.footerLink}>
+		<a
+			href="https://github.com/romankrru/react-sudoku"
+			className={styles.footerLink}
+		>
 			View Source on Github
 		</a>
 	</footer>

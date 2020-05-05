@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import cn from "classnames";
 import T from "prop-types";
 
@@ -47,4 +47,4 @@ Cell.propTypes = {
 	toggleCandidate: T.func.isRequired,
 };
 
-export default Cell;
+export default memo(Cell);

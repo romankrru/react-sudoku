@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import _ from "lodash";
 import T from "prop-types";
 
@@ -47,4 +47,4 @@ Keyboard.propTypes = {
 	mode: T.string.isRequired,
 };
 
-export default Keyboard;
+export default memo(Keyboard);

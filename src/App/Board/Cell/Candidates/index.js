@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import _ from "lodash";
 import cn from "classnames";
 import T from "prop-types";
@@ -37,4 +37,4 @@ Candidates.propTypes = {
 	candidates: T.arrayOf(T.number).isRequired,
 };
 
-export default Candidates;
+export default memo(Candidates);

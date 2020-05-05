@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import cn from "classnames";
 import T from "prop-types";
 
@@ -27,4 +27,4 @@ Button.propTypes = {
 	children: T.node,
 };
 
-export default Button;
+export default memo(Button);

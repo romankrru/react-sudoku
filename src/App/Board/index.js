@@ -11,7 +11,6 @@ import styles from "./index.module.css";
 const Board = (props) => {
 	const invalidCells = useMemo(() => validate(props.grid), [props.grid]);
 	const { width } = useWindowSize();
-	const isMobile = width < 761;
 
 	return (
 		<div className={styles.board}>
@@ -20,7 +19,7 @@ const Board = (props) => {
 					<Cell
 						rowIdx={i}
 						colIdx={j}
-						isMobile={isMobile}
+						isMobile={width < 761}
 						isValid={!invalidCells.includes(`${i};${j}`)}
 						toggleCandidate={props.toggleCandidate}
 						changeable={cell.changeable}

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Candidates /> should show correct candidates 1`] = `
+<div>
+  <div
+    class="candidates"
+  >
+    <div
+      class="candidateCell candidateCellActive"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellActive"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellActive"
+    >
+      <span>
+        6
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        7
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        8
+      </span>
+    </div>
+    <div
+      class="candidateCell candidateCellHidden"
+    >
+      <span>
+        9
+      </span>
+    </div>
+  </div>
+</div>
+`;

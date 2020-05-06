@@ -1,11 +1,25 @@
 import ReactDOM from "react-dom";
-import React, { Fragment } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 import T from "prop-types";
 
 import Button from "../../generic/Button";
 import styles from "./index.module.css";
 
+const notificationRoot = document.createElement("div");
+notificationRoot.setAttribute("id", "notification-root");
+document.body.appendChild(notificationRoot);
+
 const Notification = (props) => {
+	const el = useRef(document.createElement("div"));
+
+	useEffect(() => {
+		const node = el.current;
+
+		notificationRoot.appendChild(node);
+
+		return () => notificationRoot.removeChild(node);
+	}, []);
+
 	return ReactDOM.createPortal(
 		<Fragment>
 			<div className={styles.notificationBackdrop} />
@@ -17,6 +31,7 @@ const Notification = (props) => {
 						color="blue"
 						onClick={props.onConfirm}
 						className={styles.notificationConfirm}
+						data-testid="notification-button-new"
 					>
 						New
 					</Button>
@@ -24,7 +39,7 @@ const Notification = (props) => {
 			</div>
 		</Fragment>,
 
-		document.body
+		el.current
 	);
 };
 

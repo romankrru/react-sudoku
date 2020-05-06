@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cell /> should render correctly 1`] = `
+<div>
+  <div
+    class="cellContainer"
+  >
+    <div
+      class="cell changeableCell"
+    >
+      <div
+        class="candidates"
+      >
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            1
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            2
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            3
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            4
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            5
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            6
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            7
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            8
+          </span>
+        </div>
+        <div
+          class="candidateCell candidateCellHidden"
+        >
+          <span>
+            9
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

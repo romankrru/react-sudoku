@@ -39,7 +39,7 @@ const getCompletedKeys = (grid) => {
 
 const App = () => {
 	const [state, dispatch] = useReducer(reducer, undefined, initState);
-	const timer = useTimer(() => ls.get("timer"));
+	const timer = useTimer(() => ls.get("timer") || 0);
 
 	const completedKeys = useMemo(() => getCompletedKeys(state.grid), [
 		state.grid,

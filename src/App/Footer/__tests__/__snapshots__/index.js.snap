@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders without crashes 1`] = `
+<div>
+  <footer
+    class="footer"
+  >
+    <a
+      class="footerLink"
+      href="https://github.com/romankrru/react-sudoku"
+    >
+      View Source on Github
+    </a>
+  </footer>
+</div>
+`;

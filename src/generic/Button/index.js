@@ -6,6 +6,7 @@ import styles from "./index.module.css";
 
 const Button = (props) => (
 	<button
+		data-testid={props["data-testid"]}
 		onClick={props.onClick}
 		className={cn(
 			styles.button,
@@ -19,6 +20,7 @@ const Button = (props) => (
 
 Button.propTypes = {
 	color: T.string,
+	"data-testid": T.string,
 	onClick: T.func,
 	className: T.string,
 	children: T.node,

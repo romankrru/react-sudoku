@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio /> renders without crashes 1`] = `
+<div>
+  <label
+    class="radio"
+  >
+    <input
+      class="input"
+      type="radio"
+      value=""
+    />
+    <div
+      class="indicator"
+    />
+  </label>
+</div>
+`;

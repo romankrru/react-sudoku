@@ -31,6 +31,7 @@ const Notification = (props) => {
 						color="blue"
 						onClick={props.onConfirm}
 						className={styles.notificationConfirm}
+						data-testid="notification-button-new"
 					>
 						New
 					</Button>

@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import reducer, { actionTypes, initState } from "./reducer";
 import styles from "./assets/index.module.css";
 
+// Generate key codes for digit keys
 // ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ..., 'Digit9']
 const digitKeys = _.range(1, 10).reduce((acc, i) => {
 	acc.push(`Numpad${i}`, `Digit${i}`);
@@ -33,8 +34,8 @@ const getCompletedKeys = (grid) => {
 	});
 
 	return Object.keys(map)
-		.map(Number)
-		.filter((key) => map[key] >= 9);
+		.filter((key) => map[key] >= 9)
+		.map(Number);
 };
 
 const App = () => {
@@ -162,7 +163,7 @@ const App = () => {
 		if (!state.focus.length || !state.grid[focusRowIdx][focusColIdx].changeable)
 			return;
 
-		if ([1, 2, 3, 4, 5, 6, 7, 8, 9].includes(value)) {
+		if (_.range(1, 10).includes(value)) {
 			if (state.mode === modes.NORMAL)
 				updateCell(focusRowIdx, focusColIdx, value);
 

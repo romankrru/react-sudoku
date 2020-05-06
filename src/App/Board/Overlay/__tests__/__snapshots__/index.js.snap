@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Overlay /> should render without crashes 1`] = `
+<div>
+  <div
+    class="overlay"
+  >
+    <div
+      class="overlayResume"
+    />
+  </div>
+</div>
+`;

@@ -11,7 +11,7 @@ import Keyboard from "./Keyboard";
 import Notification from "./Notification";
 import Footer from "./Footer";
 import reducer, { actionTypes, initState } from "./reducer";
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 // ['Numpad1', 'Digit1', 'Numpad2', 'Digit2',  ..., 'Digit9']
 const digitKeys = _.range(1, 10).reduce((acc, i) => {

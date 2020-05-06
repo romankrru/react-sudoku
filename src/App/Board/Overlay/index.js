@@ -1,7 +1,7 @@
 import React from "react";
 import T from "prop-types";
 
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const Overlay = (props) => (
 	<div className={styles.overlay}>

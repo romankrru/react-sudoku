@@ -3,7 +3,7 @@ import _ from "lodash";
 import cn from "classnames";
 import T from "prop-types";
 
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const Candidates = (props) => {
 	const shouldHandleMouseDown = !props.isMobile && props.isFocus;

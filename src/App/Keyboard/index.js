@@ -4,7 +4,7 @@ import T from "prop-types";
 
 import { modes } from "../../constants";
 import Button from "./Button";
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const Keyboard = (props) => (
 	<div className={styles.keyboard}>

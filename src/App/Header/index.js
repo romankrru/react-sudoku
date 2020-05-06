@@ -5,7 +5,7 @@ import Button from "../../generic/Button";
 import Radio from "../../generic/Radio";
 import { difficulties } from "../../constants";
 import Timer from "./Timer";
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 import logo from "./assets/logo.svg";
 
 const Header = (props) => (

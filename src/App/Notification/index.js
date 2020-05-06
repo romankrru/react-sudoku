@@ -3,7 +3,7 @@ import React, { Fragment, useRef, useEffect } from "react";
 import T from "prop-types";
 
 import Button from "../../generic/Button";
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const notificationRoot = document.createElement("div");
 notificationRoot.setAttribute("id", "notification-root");

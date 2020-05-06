@@ -99,6 +99,8 @@ const App = () => {
 		const [focusRowIdx, focusColIdx] = state.focus;
 
 		if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+			e.preventDefault(); // disable scroll
+
 			if (!state.focus.length) {
 				setFocus([0, 0]);
 				return;

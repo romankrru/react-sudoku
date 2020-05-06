@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders and has logo with alt text 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <div
+      class="headerContainer"
+    >
+      <div
+        class="headerTop"
+      >
+        <img
+          alt="Sudoku"
+          height="80"
+          src="logo.svg"
+          width="149"
+        />
+        <div
+          class="timer"
+        >
+          <div
+            class="timerClock"
+          >
+            12
+            <span
+              class="timerLegend"
+            >
+              sec
+            </span>
+          </div>
+          <div
+            class="timerControl timerControlPause"
+          />
+        </div>
+      </div>
+      <div
+        class="headerControls"
+      >
+        <button
+          class="button headerControlsButton"
+        >
+          New
+        </button>
+        <button
+          class="button headerControlsButton"
+        >
+          Reset
+        </button>
+      </div>
+      <form
+        class="difficultyControls"
+      >
+        <label
+          class="radio difficultyRadio"
+        >
+          <input
+            checked=""
+            class="input"
+            name="difficulty"
+            type="radio"
+            value="EASY"
+          />
+          <div
+            class="indicator"
+          />
+          Easy
+        </label>
+        <label
+          class="radio difficultyRadio"
+        >
+          <input
+            class="input"
+            name="difficulty"
+            type="radio"
+            value="MEDIUM"
+          />
+          <div
+            class="indicator"
+          />
+          Medium
+        </label>
+        <label
+          class="radio difficultyRadio"
+        >
+          <input
+            class="input"
+            name="difficulty"
+            type="radio"
+            value="HARD"
+          />
+          <div
+            class="indicator"
+          />
+          Hard
+        </label>
+      </form>
+    </div>
+  </header>
+</div>
+`;

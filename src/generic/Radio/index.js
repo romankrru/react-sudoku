@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import T from "prop-types";
 
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const Radio = (props) => (
 	<label className={cn(styles.radio, props.className)}>

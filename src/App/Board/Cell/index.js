@@ -3,7 +3,7 @@ import cn from "classnames";
 import T from "prop-types";
 
 import Candidates from "./Candidates";
-import styles from "./index.module.css";
+import styles from "./assets/index.module.css";
 
 const Cell = (props) => (
 	<div className={styles.cellContainer}>
